@@ -4,8 +4,7 @@ class SightingsController < ApplicationController
     render json: sightings.t_json(:include => {
       :bird => {:only => [:name, :species]},
       :location => {:only => [:latitude, :longitude]}
-      }, :except => {:updated_at})
-    end
+    }, :except => {:updated_at})
   end
   def show
     sighting = Sighting.find(params[:id])
